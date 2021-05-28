@@ -6,4 +6,4 @@ echo hello world
 
 # echo to print multiple lines
 # syntax: echo -e "line1/n line2"
- echo -e "hello,\nwelcome to devops training"
+ echo -e "hello,\n\nwelcome to devops training"
