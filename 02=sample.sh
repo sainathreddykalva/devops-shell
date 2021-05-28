@@ -15,8 +15,8 @@ echo hello world
             and it’s feared that lifting the emergency would cause an instant rebound in infections,
             Economy Revitalization Minister Yasutoshi Nishimura said."
 # print the text in color
-# echo -e  "\e[COLORCODEmMessage[0m\e"
-#
+# echo -e  "\e[COLORCODEmMessage\e[0m"
+# 0 is color disable
 ## COLORS        CODE
 ## RED           31
 ## GREEN         32
@@ -28,3 +28,5 @@ echo hello world
 echo -e "\e[31mhello in red color\e[0m"
 echo normal text with no color
 echo -e "\e[33mhello in yellow color\e[0m"
+
+### More details on Colors : https://misc.flogisoft.com/bash/tip_colors_and_formatting
