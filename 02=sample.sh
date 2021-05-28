@@ -14,3 +14,17 @@ echo hello world
             especially in Tokyo and Osaka,when they should be doing the opposite,
             and it’s feared that lifting the emergency would cause an instant rebound in infections,
             Economy Revitalization Minister Yasutoshi Nishimura said."
+# print the text in color
+# echo -e  "\e[COLORCODEmMessage[0m\e"
+#
+## COLORS        CODE
+## RED           31
+## GREEN         32
+## YELLOW        33
+## BLUE          34
+## MAGENTA       35
+## CYAN          36
+
+echo -e "\e[31hello in red color"
+echo normal text with no color
+echo -e "\e[33hello in yellow color"
