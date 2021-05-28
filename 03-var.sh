@@ -3,7 +3,7 @@
 ##Declare a Variable
 
 COURSE=DevOps
-echo  COURSE NAME=$COURSE
+echo COURSE NAME = $COURSE
 #Access a Variable
 
 DATE=28-05-2021
