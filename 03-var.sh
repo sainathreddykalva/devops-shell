@@ -3,10 +3,9 @@
 ##Declare a Variable
 
 COURSE=DevOps
-
+echo  COURSE NAME=$COURSE
 #Access a Variable
 
-echo  COURSE NAME=$COURSE
 DATE=28-05-2021
 
 echo  good morning today date is $DATE
