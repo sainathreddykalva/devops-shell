@@ -6,7 +6,7 @@ COURSE=DevOps
 
 #Access a Variable
 
-echo -e COURSE NAME=$COURSE
+echo  COURSE NAME=$COURSE
 DATE=28-05-2021
 
-echo -e good morning today date is $DATE
+echo  good morning today date is $DATE
