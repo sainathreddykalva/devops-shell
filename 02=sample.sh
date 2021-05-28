@@ -25,6 +25,6 @@ echo hello world
 ## MAGENTA       35
 ## CYAN          36
 
-echo -e "\e[31hello in red color"
+echo -e "\e[31mhello in red color"
 echo normal text with no color
-echo -e "\e[33hello in yellow color"
+echo -e "\e[33mhello in yellow color"
