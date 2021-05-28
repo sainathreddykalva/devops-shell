@@ -6,6 +6,6 @@ COURSE=DevOps
 echo COURSE NAME = $COURSE
 #Access a Variable
 
-DATE=$(DATE +%F)
+DATE=$(date +%F)
 
 echo  good morning today date is $DATE
