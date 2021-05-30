@@ -6,3 +6,9 @@
  echo $1
 #$2 give second input argument
  echo $2
+
+ # $* $@ indicates all the arguments
+
+ echo $*
+
+ echo $@
