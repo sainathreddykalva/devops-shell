@@ -12,3 +12,7 @@
  echo $*
 
  echo $@
+
+ # $# give no of arguments passed
+
+ echo $#
