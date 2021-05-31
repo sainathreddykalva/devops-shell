@@ -4,8 +4,12 @@
 
 sample() {
   echo welcome to sample function
-
+  echo value of a =$a
+  b=20
 }
 
 ##access your function
+
+a=10
+echo value of b=$b
 sample
