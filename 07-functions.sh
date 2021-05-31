@@ -11,5 +11,7 @@ sample() {
 ##access your function
 
 a=10
-echo value of b =$b
+
 sample
+
+echo value of b =$b
