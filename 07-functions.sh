@@ -4,6 +4,8 @@
 
 sample() {
   echo welcome to sample function
+  ## come out of function using return comand
+  return
   echo value of a =$a
   echo first argument =$1
   echo second argument =$2
