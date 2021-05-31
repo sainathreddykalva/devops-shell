@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo installing frontend
+echo installing payment
