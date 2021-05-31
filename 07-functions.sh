@@ -16,4 +16,7 @@ a=10
 
 sample 300 500
 
+## taking cli arguments wit functions
+sample $1 $2
+
 echo value of b =$b
