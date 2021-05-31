@@ -5,6 +5,8 @@
 sample() {
   echo welcome to sample function
   echo value of a =$a
+  echo first argument =$1
+  echo second argument =$2
   b=20
 }
 
@@ -12,6 +14,6 @@ sample() {
 
 a=10
 
-sample
+sample 300 500
 
 echo value of b =$b
