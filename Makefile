@@ -1,4 +1,4 @@
-coffee;
+coffee:
     @echo making coffee
-tea;
+tea:
     @echo making tea
