@@ -17,3 +17,4 @@ if [ "$username" == "root" ]; then
       else
         echo "File Not found"
         fi
+        ## Note: Always try to use variable inside quotes in expressions
