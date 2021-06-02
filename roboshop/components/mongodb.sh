@@ -11,7 +11,7 @@ gpgcheck=1
 enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc' >/etc/yum.repos.d/mongodb.repo
 STAT $?
-HEAD "Instaling MongoDB"
+HEAD "Instaling MongoDB\t"
 yum install -y mongodb-org &>>/tmp/roboshop.log
 STAT $?
 
