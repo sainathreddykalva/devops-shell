@@ -7,9 +7,11 @@ if [ -z "${COMPONENT}" ]; then
   echo "Component Input is Needed"
   exit 1
   fi
+
   LID=lt-0b557ee178484346e
   LVER=1
   ##validate if instance is already exists
+
  INSTANCE_STATE=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}" | jq .Reservations[].Instances[].State.Name | xargs -n1)
 
 if [ "${INSTANCE_STATE}" = "running" ]; then
