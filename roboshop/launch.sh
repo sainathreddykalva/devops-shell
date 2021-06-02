@@ -16,6 +16,7 @@ if [ "${INSTANCE_STATE}" = "running" ]; then
   echo "instance already exists!!"
   exit 0
   fi
+
   if [ "${INSTANCE_STATE}" = "stopped" ]; then
     exit 0
     fi
