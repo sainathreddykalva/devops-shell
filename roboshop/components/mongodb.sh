@@ -11,7 +11,7 @@ gpgcheck=1
 enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc' >/etc/yum.repos.d/mongodb.repo
 STAT $?
-HEAD "Instaling MongoDB\t"
+HEAD "Instaling MongoDB\t\t"
 yum install -y mongodb-org &>>/tmp/roboshop.log
 STAT $?
 
@@ -27,11 +27,11 @@ STAT $?
 HEAD "Download Schema from GitHub\t"
 curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip" &>>/tmp/roboshop.log
 STAT $?
-HEAD "Extract Downloaded Archive"
+HEAD "Extract Downloaded Archive\t"
 cd /tmp
 unzip -o mongodb.zip &>>/tmp/roboshop.log
 STAT $?
-HEAD "Load Schema\t\t"
+HEAD "Load Schema\t\t\t"
 cd mongodb-main
 mongo < catalogue.js &>>/tmp/roboshop.log && mongo < users.js &>>/tmp/roboshop.log
 STAT $?
