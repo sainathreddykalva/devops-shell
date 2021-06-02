@@ -10,7 +10,7 @@ if [ -z "${COMPONENT}" ]; then
   LID=lt-0b557ee178484346e
   LVER=1
   ##validate if instance is already exists
- INSTANCE_STAT=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=$COMPONENT" | jq .Reservations[].Instances[].State.Name | xargs -n1)
+ INSTANCE_STAT=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}" | jq .Reservations[].Instances[].State.Name | xargs -n1)
 
 if [ "$(INSTANCE_STAT)" = "running" ]; then
   echo "instance already exists!!"
