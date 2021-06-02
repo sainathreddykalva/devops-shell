@@ -29,10 +29,10 @@ curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongo
 STAT $?
 HEAD "Extract Downloaded Archive"
 cd /tmp
-unzip mongodb.zip &>>/tmp/roboshop.log
+unzip -o mongodb.zip &>>/tmp/roboshop.log
 STAT $?
 HEAD "Load Schema\t\t"
 cd mongodb-main
-mongo < catalogue.js && mongo < users.js &>>/tmp/roboshop.log
+mongo < catalogue.js &>>/tmp/roboshop.log && mongo < users.js &>>/tmp/roboshop.log
 STAT $?
 
