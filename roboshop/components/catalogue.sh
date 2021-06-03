@@ -21,5 +21,5 @@ cd /home/roboshop && unzip -o /tmp/catalogue.zip &>>/tmp/roboshop.log && mv cata
 STAT $?
 
 HEAD "Install NodeJS Dependencies"
-cd /home/roboshop/catalogue && npm install &>>/tmp/roboshop.log
+cd /home/roboshop/catalogue && npm install --unsafe-perm &>>/tmp/roboshop.log
 STAT $?
