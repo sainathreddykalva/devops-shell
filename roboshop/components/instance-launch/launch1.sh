@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 COMPONENT=$1
@@ -10,19 +9,41 @@ if [ -z "${COMPONENT}" ]; then
 fi
 
 LID=lt-0b557ee178484346e
-LVER=1
+LVER=3
 
 ## Validate If Instance is already there
 
-INSTANCE_STATE=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}"  | jq .Reservations[].Instances[].State.Name | xargs -n1)
-if [ "${INSTANCE_STATE}" = "running" ]; then
-  echo "Instance already exists!!"
-  exit 0
-fi
+DNS_UPDATE() {
+  PRIVATEIP=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}"  | jq .Reservations[].Instances[].PrivateIpAddress | xargs -n1)
+  sed -e "s/COMPONENT/${COMPONENT}/" -e "s/IPADDRESS/${PRIVATEIP}/" record.json >/tmp/record.json
+  aws route53 change-resource-record-sets --hosted-zone-id Z0772958MCTV19V3MTMX --change-batch file:///tmp/record.json | jq
+}
 
-if [ "${INSTANCE_STATE}" = "stopped" ]; then
-  echo "Instance already exists!!"
-  exit 0
-fi
+INSTANCE_CREATE() {
+  INSTANCE_STATE=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}"  | jq .Reservations[].Instances[].State.Name | xargs -n1)
+  if [ "${INSTANCE_STATE}" = "running" ]; then
+    echo "${COMPONENT} Instance already exists!!"
+    DNS_UPDATE
+    return 0
+  fi
 
-aws ec2 run-instances --launch-template LaunchTemplateId=${LID},Version=${LVER}  --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}]" | jq
+  if [ "${INSTANCE_STATE}" = "stopped" ]; then
+    echo "${COMPONENT} Instance already exists!!"
+    return 0
+  fi
+
+  echo -n Instance ${COMPONENT} created - IPADDRESS is
+  aws ec2 run-instances --launch-template LaunchTemplateId=${LID},Version=${LVER}  --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}]" | jq | grep  PrivateIpAddress  |xargs -n1
+  sleep 10
+  DNS_UPDATE
+}
+
+if [ "${1}" == "all" ]; then
+  for component in frontend mongodb catalogue redis user cart mysql shipping rabbitmq payment ; do
+    COMPONENT=$component
+    INSTANCE_CREATE
+  done
+else
+  COMPONENT=$1
+  INSTANCE_CREATE
+fi
